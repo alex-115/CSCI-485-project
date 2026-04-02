@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 data = pd.read_csv("Hospital_dataset.csv")
 
@@ -13,9 +14,26 @@ data['admission_date'] = pd.to_datetime(data['admission_date'])
 print(data['admission_date'].dtype)
 
 # Formatting 
+# Data is formatted correctly
 
 # Variable deriviations
+# None yet, once ramani comes back with findings then I will implement it into our dataset
 
 # Standardization
+#Standardizing predictors is important for models that rely on distances, 
+#gradients, or regularization, because differences in feature scale can distort model behavior. 
+# I can't standardize any data yet until we choose a model, but here is some code just in case
+
+#scaler = StandardScaler()
+
+#numeric_cols = data.select_dtypes(include=['float64', 'int64']).columns
+
+#scaled_arr = scaler.fit_transform(data[numeric_cols])
+
+#scaled_df = pd.DataFrame(scaled_arr, columns=numeric_cols)
+
+#print("Summary of scaled df")
+#scaled_df.info()
 
 # Save the new data into a csv
+data.to_csv("Prepped_data.csv", index=False)
