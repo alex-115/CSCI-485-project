@@ -1,0 +1,170 @@
+HOSPITAL DATASET — EXPLORATORY DATA ANALYSIS REPORT
+Dataset: Hospital_dataset.csv  |  N = 8,000 patients
+
+=================================================================
+  1. SUMMARY STATISTICS — NUMERIC COLUMNS
+=================================================================
+           age  comorbidities_count  length_of_stay  medications_count  followup_visits_last_year  prev_readmissions
+count  8000.00              8000.00         8000.00            8000.00                    8000.00            8000.00
+mean     57.41                 4.32            7.79               7.48                       3.64               1.57
+std      16.72                 1.36            1.93               2.29                       1.63               0.89
+min      18.00                 1.00            3.00               2.00                       0.00               0.00
+25%      46.00                 3.00            6.00               6.00                       2.00               1.00
+50%      57.00                 4.00            8.00               8.00                       4.00               1.00
+75%      69.00                 5.00            9.00               9.00                       4.00               2.00
+max      95.00                10.00           15.00              18.00                      10.00               5.00
+
+=================================================================
+  1b. SKEWNESS & KURTOSIS
+=================================================================
+  age                                  skew=-0.010   kurtosis=-0.367
+  comorbidities_count                  skew=+0.175   kurtosis=+0.036
+  length_of_stay                       skew=+0.270   kurtosis=-0.356
+  medications_count                    skew=+0.157   kurtosis=+0.050
+  followup_visits_last_year            skew=+0.572   kurtosis=-0.110
+  prev_readmissions                    skew=+0.881   kurtosis=+1.036
+
+=================================================================
+  2. CATEGORICAL VALUE COUNTS
+=================================================================
+
+season:
+  Winter                           2041  (25.5%)
+  Fall                             1996  (24.9%)
+  Summer                           1991  (24.9%)
+  Spring                           1972  (24.6%)
+
+gender:
+  Female                           4184  (52.3%)
+  Male                             3816  (47.7%)
+
+region:
+  South                            1993  (24.9%)
+  West                             1631  (20.4%)
+  East                             1617  (20.2%)
+  North                            1523  (19.0%)
+  Central                          1236  (15.4%)
+
+primary_diagnosis:
+  Diabetes                         1470  (18.4%)
+  Hypertension                     1301  (16.3%)
+  COPD                              952  (11.9%)
+  Stroke                            883  (11.0%)
+  Kidney Disease                    868  (10.8%)
+  Appendicitis                      534  (6.7%)
+  Sepsis                            497  (6.2%)
+  Fracture                          434  (5.4%)
+  Pneumonia                         425  (5.3%)
+  Heart Failure                     403  (5.0%)
+  Influenza                         233  (2.9%)
+
+treatment_type:
+  Medical                          3588  (44.9%)
+  Surgical                         1988  (24.9%)
+  Interventional                   1663  (20.8%)
+  Conservative                      761  (9.5%)
+
+insurance_type:
+  Private                          3052  (38.1%)
+  Medicare                         2542  (31.8%)
+  Medicaid                         1598  (20.0%)
+  Uninsured                         808  (10.1%)
+
+discharge_disposition:
+  Home Health                      6065  (75.8%)
+  Skilled Nursing                  1568  (19.6%)
+  Home                              317  (4.0%)
+  Rehab                              50  (0.6%)
+
+=================================================================
+  3. PEARSON CORRELATIONS (pairs |r| > 0.2)
+=================================================================
+  medications_count              ↔  comorbidities_count             r = +0.890
+  comorbidities_count            ↔  age                             r = +0.823
+  medications_count              ↔  age                             r = +0.736
+  followup_visits_last_year      ↔  comorbidities_count             r = +0.687
+  followup_visits_last_year      ↔  age                             r = +0.673
+  prev_readmissions              ↔  comorbidities_count             r = +0.622
+  followup_visits_last_year      ↔  medications_count               r = +0.609
+  prev_readmissions              ↔  age                             r = +0.596
+  prev_readmissions              ↔  medications_count               r = +0.547
+  prev_readmissions              ↔  followup_visits_last_year       r = +0.494
+  length_of_stay                 ↔  comorbidities_count             r = +0.243
+  medications_count              ↔  length_of_stay                  r = +0.214
+  length_of_stay                 ↔  age                             r = +0.206
+
+=================================================================
+  4. LENGTH OF STAY — GROUP MEANS
+=================================================================
+
+By primary_diagnosis:
+                    Mean  Median   Std
+primary_diagnosis                     
+Sepsis             10.76    11.0  1.14
+Heart Failure       9.75    10.0  1.10
+Stroke              9.74    10.0  1.17
+COPD                8.83     9.0  1.16
+Pneumonia           8.70     9.0  1.06
+Fracture            7.81     8.0  1.14
+Kidney Disease      7.74     8.0  1.12
+Influenza           6.79     7.0  1.13
+Diabetes            6.75     7.0  1.14
+Appendicitis        5.88     6.0  1.14
+Hypertension        5.82     6.0  1.14
+
+By treatment_type:
+                Mean  Median   Std
+treatment_type                    
+Surgical        7.86     8.0  1.92
+Interventional  7.84     8.0  1.92
+Medical         7.74     8.0  1.93
+Conservative    7.70     8.0  1.95
+
+By insurance_type:
+                Mean  Median   Std
+insurance_type                    
+Medicare        8.19     8.0  1.91
+Uninsured       7.75     8.0  1.90
+Medicaid        7.59     7.5  1.90
+Private         7.57     7.0  1.92
+
+By region:
+         Mean  Median   Std
+region                     
+North    7.83     8.0  1.93
+South    7.81     8.0  1.92
+East     7.80     8.0  1.94
+Central  7.77     8.0  1.92
+West     7.73     8.0  1.94
+
+By season:
+        Mean  Median   Std
+season                    
+Winter  8.71     9.0  1.75
+Summer  7.51     7.0  1.91
+Fall    7.48     7.0  1.90
+Spring  7.43     7.0  1.86
+
+=================================================================
+  5. TEMPORAL SUMMARY
+=================================================================
+Date range: 2021-01-01 → 2023-12-31
+Years covered: [np.int32(2021), np.int32(2022), np.int32(2023)]
+
+Admissions per year:
+  2021: 2717
+  2022: 2664
+  2023: 2619
+
+=================================================================
+  6. KEY TAKEAWAYS
+=================================================================
+  • Dataset: 8,000 patients, 16 variables
+  • Avg age: 57.4 yrs  |  Range: 18–95
+  • Avg length of stay: 7.8 days
+  • Most common diagnosis: Diabetes
+  • Most common treatment: Medical
+  • Patients with 0 prior readmissions: 477 (6.0%)
+  • Patients with 3+ prior readmissions: 966 (12.1%)
+  • Correlation: LOS ↔ comorbidities = 0.243
+  • Correlation: LOS ↔ age           = 0.206
