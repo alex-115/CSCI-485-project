@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression  # or any model
 data = pd.read_csv("Hospital_dataset.csv")
 
 # Drop irrelevant column
-data.drop("readmission_risk_score", axis=1)
+data = data.drop("readmission_risk_score", axis=1)
 
 # Handle missing data
 print(data.isna().sum())
