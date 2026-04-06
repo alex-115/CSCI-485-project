@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.linear_model import LogisticRegression  # or any model
 
-data = pd.read_csv("Hospital_dataset.csv")
+data = pd.read_csv("Dataset/Hospital_dataset.csv")
 
 # Drop irrelevant column
 data = data.drop("readmission_risk_score", axis=1)
