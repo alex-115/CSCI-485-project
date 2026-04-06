@@ -4,7 +4,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.linear_model import LogisticRegression  # or any model
 
-data = pd.read_csv("Prepped_hospital_data.csv")
+data = pd.read_csv("Hospital_dataset.csv")
+
+# Drop irrelevant column
+data.drop("readmission_risk_score", axis=1)
 
 # Handle missing data
 print(data.isna().sum())
@@ -39,14 +42,3 @@ print(data['admission_date'].dtype)
 
 # Save the new data into a csv
 data.to_csv("prepped_hospital_data.csv", index=False)
-
-# Methods for training/validation/testing
-# k-fold cross-validation else typical split train: 60-70% -> validation: 15-20% -> test: 15-20%
-# X = data.drop("readmission_risk_score", axis = 1)
-# y = data["readmission_risk_score"]
-#kf = KFold(n_splits=5, shuffle=True, random_state=42)
-#model = LogisticRegression(max_iter=1000)
-#scores = cross_val_score(model, X, y, cv=kf, scoring="accuracy")
-
-# For medium 5k - 100k rows training: 80 -> validation: 10 -> test: 10
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True) # I used shuffle to randomize the selection of data
