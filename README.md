@@ -32,4 +32,4 @@ insurance_type - The type of insurance the patient has
 
 discharge_disposition - The type of discharge disposition the patient was received after treatment
 
-readmission_risk_score = The probability of a patient being readmitted within 30 days.
+Label - 1 if the patient has been readmitted within 30-days and 0 if the patient hasn't been readmitted within 30-days
