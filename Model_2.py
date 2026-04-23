@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.linear_model import LogisticRegression  # or any model
 from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score, average_precision_score, classification_report
 
 data = pd.read_csv("Dataset/prepped_hospital_data.csv")
 
@@ -57,3 +59,20 @@ X_val_transformed = preprocess.transform(X_val)
 X_test_transformed = preprocess.transform(X_test)
 
 #Training begins here
+model = RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+model.fit(X_train_transformed, y_train)
+
+y_val_pred = model.predict(X_val_transformed)
+y_val_probs = model.predict_proba(X_val_transformed)[:, 1]
+
+roc_auc = roc_auc_score(y_val, y_val_probs)
+pr_auc = average_precision_score(y_val, y_val_probs)
+
+print("=== Random Forest Validation Results ===")
+print(f"ROC-AUC: {roc_auc:.4f}")
+print(f"PR-AUC:  {pr_auc:.4f}")
+print("\nClassification Report:")
+print(classification_report(y_val, y_val_pred))
