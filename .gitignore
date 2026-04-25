@@ -1,9 +1,22 @@
+# --- Project-specific ---------------------------------------------------------
 proposal.txt
 stage1_variable_summary_full.md
 
-# Local virtual environment + caches
+# --- Python virtual environments ----------------------------------------------
 venv/
 .venv/
+env/
+
+# --- Python caches / bytecode -------------------------------------------------
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+
+# --- Jupyter ------------------------------------------------------------------
 .ipynb_checkpoints/
+
+# --- OS / editor noise --------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
