@@ -52,6 +52,7 @@ for non-notebook users.
 | `Himanshu_Stage2/figures/confusion_matrices_validation.png` | Side-by-side validation confusion matrices at the default 0.5 threshold. |
 | `Himanshu_Stage2/figures/xgboost_top_features.png` | Top-15 XGBoost gain-based importances (sanity check). |
 | `Himanshu_Stage2/stage2_baseline_report.md` | Written analysis + Stage 3 recommendation. |
+| `Himanshu_Stage2/literature_review.md` | Survey of what other people use for 30-day readmission prediction (UCI Diabetes 130-US benchmarks, synthetic-Kaggle benchmarks, recommended additions for Stage 3 — CatBoost, LightGBM, ensemble). |
 | `requirements.txt` (project root) | Reproducible dependency list. |
 | `venv/` (project root, gitignored) | Local virtual environment used to run everything. |
 
