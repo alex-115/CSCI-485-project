@@ -1,2 +1,9 @@
 proposal.txt
 stage1_variable_summary_full.md
+
+# Local virtual environment + caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
