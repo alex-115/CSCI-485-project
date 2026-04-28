@@ -1,0 +1,38 @@
+=== FINAL TEST SET PERFORMANCE ===
+
+
+Top 3 coeffcients with the strongest impact:                            
+feature  coefficient  odds_ratio
+37         num__prev_readmissions     0.669271    1.952814
+10    cat__primary_diagnosis_COPD     0.600718    1.823427
+19  cat__primary_diagnosis_Stroke     0.468534    1.597650
+
+
+ROC-AUC: 0.8299410046982862
+PR-AUC: 0.9370646421717862
+
+
+Brier Score: 0.1706477106868414
+
+
+F2-score: 0.7657995888084383
+Accuracy: 0.7333333333333333
+Confusion Matrix:
+ [[221  52]
+ [268 659]]
+
+
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.45      0.81      0.58       273
+           1       0.93      0.71      0.80       927
+
+    accuracy                           0.73      1200
+   macro avg       0.69      0.76      0.69      1200
+weighted avg       0.82      0.73      0.75      1200
+
+
+
+Percentage of patients flagged as high-risk: 59.25%
