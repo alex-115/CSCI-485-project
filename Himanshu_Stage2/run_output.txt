@@ -1,0 +1,54 @@
+Loading data from Dataset/prepped_hospital_data.csv
+Split sizes  train=5600  val=1200  test=1200
+Positive rate train=0.773  val=0.773  test=0.772
+
+=== Logistic Regression ===
+Validation  ROC-AUC = 0.8559   PR-AUC = 0.9477
+Validation classification report:
+              precision    recall  f1-score   support
+
+           0      0.681     0.353     0.465       272
+           1      0.834     0.952     0.889       928
+
+    accuracy                          0.816      1200
+   macro avg      0.757     0.652     0.677      1200
+weighted avg      0.799     0.816     0.793      1200
+
+
+=== Random Forest ===
+Validation  ROC-AUC = 0.8281   PR-AUC = 0.9399
+Validation classification report:
+              precision    recall  f1-score   support
+
+           0      0.598     0.371     0.458       272
+           1      0.834     0.927     0.878       928
+
+    accuracy                          0.801      1200
+   macro avg      0.716     0.649     0.668      1200
+weighted avg      0.781     0.801     0.783      1200
+
+
+=== Gradient Boosting ===
+Validation  ROC-AUC = 0.8461   PR-AUC = 0.9448
+Validation classification report:
+              precision    recall  f1-score   support
+
+           0      0.632     0.423     0.507       272
+           1      0.846     0.928     0.885       928
+
+    accuracy                          0.813      1200
+   macro avg      0.739     0.675     0.696      1200
+weighted avg      0.797     0.813     0.799      1200
+
+
+=== Validation summary (sorted by ROC-AUC) ===
+              model  roc_auc   pr_auc  tp  fp  tn  fn  precision_pos  recall_pos
+Logistic Regression 0.855910 0.947739 883 176  96  45       0.833805    0.951509
+  Gradient Boosting 0.846097 0.944820 861 157 115  67       0.845776    0.927802
+      Random Forest 0.828075 0.939864 860 171 101  68       0.834142    0.926724
+
+=== Test summary (sorted by ROC-AUC) ===
+              model  roc_auc   pr_auc  tp  fp  tn  fn  precision_pos  recall_pos
+Logistic Regression 0.830609 0.936895 887 188  85  40       0.825116    0.956850
+  Gradient Boosting 0.824757 0.935471 863 166 107  64       0.838678    0.930960
+      Random Forest 0.806853 0.929249 867 184  89  60       0.824929    0.935275
