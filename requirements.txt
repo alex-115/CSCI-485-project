@@ -3,6 +3,7 @@ pandas>=2.0,<3
 scikit-learn>=1.4,<2
 matplotlib>=3.7,<4
 xgboost-cpu>=2.0,<3
+scipy>=1.11
 jupyter>=1.0
 ipykernel>=6.29
 nbconvert>=7.16

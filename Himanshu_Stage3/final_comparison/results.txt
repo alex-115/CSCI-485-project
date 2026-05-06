@@ -1,0 +1,53 @@
+=== Stage 3 final 3-way comparison: LR vs XGBoost v1 vs XGBoost v2 ===
+
+                        model  test_roc_auc  test_pr_auc  test_brier  test_f2  threshold  tn  fp  fn  tp
+  Logistic Regression (tuned)      0.829941     0.937065    0.170648 0.934774   0.197192  67 206  27 900
+XGBoost v2 (tuned + isotonic)      0.826612     0.937329    0.130424 0.936271   0.356988  53 220  22 905
+           XGBoost v1 (tuned)      0.825191     0.935967    0.169722 0.929916   0.211445  90 183  38 889
+
+Winner by test ROC-AUC: Logistic Regression (tuned)
+
+--- v1 vs v2 head-to-head (held-out test set) ---
+Metric                 v1         v2      Delta
+ROC-AUC            0.8252     0.8266    +0.0014
+PR-AUC             0.9360     0.9373    +0.0014
+Brier              0.1697     0.1304    -0.0393  (lower=better)
+F2                 0.9299     0.9363    +0.0064
+Threshold          0.2114     0.3570
+
+--- Logistic Regression (tuned) ---
+threshold=0.1972
+              precision    recall  f1-score   support
+
+           0      0.713     0.245     0.365       273
+           1      0.814     0.971     0.885       927
+
+    accuracy                          0.806      1200
+   macro avg      0.763     0.608     0.625      1200
+weighted avg      0.791     0.806     0.767      1200
+Confusion matrix: TN=67 FP=206 FN=27 TP=900
+
+--- XGBoost v1 (tuned) ---
+threshold=0.2114
+              precision    recall  f1-score   support
+
+           0      0.703     0.330     0.449       273
+           1      0.829     0.959     0.889       927
+
+    accuracy                          0.816      1200
+   macro avg      0.766     0.644     0.669      1200
+weighted avg      0.801     0.816     0.789      1200
+Confusion matrix: TN=90 FP=183 FN=38 TP=889
+
+--- XGBoost v2 (tuned + isotonic) ---
+threshold=0.3570
+              precision    recall  f1-score   support
+
+           0      0.707     0.194     0.305       273
+           1      0.804     0.976     0.882       927
+
+    accuracy                          0.798      1200
+   macro avg      0.756     0.585     0.593      1200
+weighted avg      0.782     0.798     0.751      1200
+Confusion matrix: TN=53 FP=220 FN=22 TP=905
+

@@ -1,0 +1,19 @@
+{
+  "best_params": {
+    "colsample_bylevel": 0.673733469732548,
+    "colsample_bytree": 0.632349186646879,
+    "gamma": 2.141572374700539,
+    "learning_rate": 0.06338524150594657,
+    "max_delta_step": 0,
+    "max_depth": 4,
+    "min_child_weight": 10,
+    "n_estimators": 812,
+    "reg_alpha": 0.021235216307804828,
+    "reg_lambda": 0.05240371517221391,
+    "subsample": 0.6375493160325166
+  },
+  "scale_pos_weight": 0.29390018484288355,
+  "cv_best_pr_auc": 0.9357020516930827,
+  "optimal_threshold": 0.35698779821395876,
+  "calibration": "isotonic, cv=5"
+}
