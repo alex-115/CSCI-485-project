@@ -1,0 +1,45 @@
+=== Tuned XGBoost - FINAL TEST SET PERFORMANCE ===
+
+Best CV PR-AUC (5-fold, average_precision): 0.9349
+Best params: {'colsample_bytree': np.float64(0.8630451569201374), 'gamma': np.float64(2.841543016677358), 'learning_rate': np.float64(0.013752099014456887), 'max_depth': 5, 'min_child_weight': 6, 'n_estimators': 574, 'reg_lambda': np.float64(0.05641381315708955), 'subsample': np.float64(0.8359483390242175)}
+scale_pos_weight (neg/pos on train) = 0.2939
+
+Optimal threshold (max F1 on validation): 0.2114
+
+ROC-AUC: 0.825191
+PR-AUC : 0.935967
+Brier  : 0.169722
+F2     : 0.929916
+
+Confusion matrix:
+[[ 90 183]
+ [ 38 889]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+           0      0.703     0.330     0.449       273
+           1      0.829     0.959     0.889       927
+
+    accuracy                          0.816      1200
+   macro avg      0.766     0.644     0.669      1200
+weighted avg      0.801     0.816     0.789      1200
+
+Percentage of patients flagged as high-risk: 89.33%
+
+Top 15 features (by gain):
+num__comorbidities_count                      67.691582
+cat__insurance_type_Medicare                  43.143520
+num__medications_count                        27.596128
+num__age                                      16.179972
+num__prev_readmissions                        12.912203
+cat__discharge_disposition_Skilled Nursing     9.566252
+num__length_of_stay                            7.982717
+cat__discharge_disposition_Home                6.663824
+cat__primary_diagnosis_Hypertension            5.976211
+cat__discharge_disposition_Home Health         5.709076
+cat__primary_diagnosis_COPD                    5.213677
+cat__insurance_type_Private                    5.210577
+cat__insurance_type_Uninsured                  4.651844
+cat__primary_diagnosis_Kidney Disease          4.568936
+cat__primary_diagnosis_Diabetes                4.551274

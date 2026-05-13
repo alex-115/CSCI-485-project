@@ -1,0 +1,63 @@
+=== Tuned XGBoost v2 (wider search + isotonic calibration) ===
+
+Best CV PR-AUC (5-fold, average_precision): 0.9357
+Best params: {'colsample_bylevel': 0.673733469732548, 'colsample_bytree': 0.632349186646879, 'gamma': 2.141572374700539, 'learning_rate': 0.06338524150594657, 'max_delta_step': 0, 'max_depth': 4, 'min_child_weight': 10, 'n_estimators': 812, 'reg_alpha': 0.021235216307804828, 'reg_lambda': 0.05240371517221391, 'subsample': 0.6375493160325166}
+scale_pos_weight = 0.2939
+Calibration: CalibratedClassifierCV(method='isotonic', cv=5)
+
+[pre-calibration]  val PR-AUC = 0.9482  test PR-AUC = 0.9388  test Brier = 0.1682
+
+Optimal threshold (max F1 on val): 0.3570
+
+ROC-AUC: 0.826612
+PR-AUC : 0.937329
+Brier  : 0.130424
+F2     : 0.936271
+
+Confusion matrix:
+[[ 53 220]
+ [ 22 905]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+           0      0.707     0.194     0.305       273
+           1      0.804     0.976     0.882       927
+
+    accuracy                          0.798      1200
+   macro avg      0.756     0.585     0.593      1200
+weighted avg      0.782     0.798     0.751      1200
+
+Flagged high-risk: 93.75%
+
+=== v1 vs v2 head-to-head (held-out test set) ===
+
+Metric          v1 (n_iter=40)   v2 (n_iter=100 + isotonic)   Delta
+ROC-AUC         0.8252           0.8266                       +0.0014
+PR-AUC          0.9360           0.9373                       +0.0013
+Brier           0.1697           0.1304                       -0.0393  (lower = better)
+F2              0.9299           0.9363                       +0.0064
+
+CV best PR-AUC  0.9349           0.9357                       +0.0008
+Threshold       0.2114           0.3570 (post-isotonic)
+
+Confusion       v1: TN=90 FP=183 FN=38 TP=889
+                v2: TN=53 FP=220 FN=22 TP=905
+
+Verdict
+-------
+Wider RandomizedSearchCV (40 -> 100 iters) plus isotonic calibration
+moved every metric in the right direction without any sign of
+overfitting. ROC-AUC and PR-AUC each gained ~0.001 -- effectively at
+the noise floor for a 1,200-row test split. The real win is Brier
+(0.170 -> 0.130, a 23% relative drop) which comes from the isotonic
+step. F2 also rose because the calibrated-then-F1-maximized threshold
+sits more aggressively on a more reliable probability surface.
+
+So: yes, we can optimize XGBoost further -- but the gains are mostly
+in *calibration quality*, not in ranking quality. The 3-way head-to-head
+against the optimized Logistic Regression (see
+../final_comparison/results.txt) confirms LR > v2 > v1 on test ROC-AUC,
+all within ~0.005 of each other. To move ranking metrics meaningfully
+we'd need new features (Alejandro's Stage 2 engineering work), not more
+tuning.

@@ -1,0 +1,2 @@
+model,test_roc_auc,test_pr_auc,test_brier,test_f2,threshold,tn,fp,fn,tp
+XGBoost v2 (tuned + isotonic),0.8266118994274334,0.937329424071565,0.13042415776708838,0.936271466997724,0.35698779821395876,53,220,22,905
