@@ -1,0 +1,25 @@
+shap values: 
+
+
+Top 20 global SHAP features:
+                                  feature  mean_abs_shap
+37                 num__prev_readmissions       0.522007
+32                               num__age       0.373741
+33               num__comorbidities_count       0.286466
+34                    num__length_of_stay       0.258507
+35                 num__medications_count       0.258099
+26            cat__insurance_type_Private       0.147973
+10            cat__primary_diagnosis_COPD       0.133003
+16  cat__primary_diagnosis_Kidney Disease       0.101564
+19          cat__primary_diagnosis_Stroke       0.068914
+2                      cat__season_Summer       0.061281
+36         num__followup_visits_last_year       0.060464
+20       cat__treatment_type_Conservative       0.048477
+18          cat__primary_diagnosis_Sepsis       0.039934
+12        cat__primary_diagnosis_Fracture       0.037744
+11        cat__primary_diagnosis_Diabetes       0.035885
+25           cat__insurance_type_Medicare       0.031867
+38                      remainder__gender       0.031862
+14    cat__primary_diagnosis_Hypertension       0.029060
+17       cat__primary_diagnosis_Pneumonia       0.026935
+27          cat__insurance_type_Uninsured       0.023953
