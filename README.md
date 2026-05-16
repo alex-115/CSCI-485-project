@@ -46,6 +46,6 @@ Description: The fourth stage centered on interpreting the results of our best m
 
 [Demo](https://github.com/alex-115/CSCI-485-project/blob/main/Demo_All_Stages.ipynb)
 
-[Final Report](https://github.com/alex-115/CSCI-485-project/blob/main/Final_Report.ipynb)
+[Final Report](https://github.com/alex-115/CSCI-485-project/blob/main/Final_Report.pdf)
 
 
