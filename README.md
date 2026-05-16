@@ -1,35 +1,51 @@
-# CSCI-485-project
+# CSCI-485-project Repository Guide
 
-<ins> Variable Descriptions </ins>
+Our project consisted of four stages.
 
-patient_id - Numerical unique patient identifier
+## Stage 1
 
-admission_date - Hospital admission date
+Description:  The first stage established the foundation for our models, which involved an exploratory data analysis, data prep, and research. 
 
-season - Season of when patient was admitted to hospital
+[EDA](https://github.com/alex-115/CSCI-485-project/tree/main/EDA)
 
-age - Age of the patient
+[Data Prep](https://github.com/alex-115/CSCI-485-project/blob/main/Data_prep.py)
 
-gender - The gender of the patient 
+[Data Set](https://github.com/alex-115/CSCI-485-project/tree/main/Dataset)
 
-region - Region of the hospital that the patient was admitted to
+[Research](https://github.com/alex-115/CSCI-485-project/blob/main/stage1_variable_summary.md)
 
-primary_diagnosis - The diagnosis of the patient
+## Stage 2
 
-comorbidities_count - The number of additional conditions
+Description: The second stage involved developing four baseline models, such as Logistic Regression, XGBoost, Random Forest, and Gradient Boosting. We did this to identify which two had the greatest potential for optimization
 
-length_of_stay - The number of days spent in the hospital
+[Model 1](https://github.com/alex-115/CSCI-485-project/blob/main/Model_1.py)
 
-treatment_type - The type of treatment received for diagnosis
+[Models 2-4](https://github.com/alex-115/CSCI-485-project/blob/main/Himanshu_Stage2/stage2_baseline_comparison.ipynb)
 
-medications_count - The number of medications prescribed
+[Stage 2 Report](https://github.com/alex-115/CSCI-485-project/blob/main/Himanshu_Stage2/stage2_baseline_report.md)
 
-followup_visits_last_year - Outpatient visits in the past year
+## Stage 3
 
-prev_readmissions - Previous hospital admissions 
+Description: The third stage focused on optimizing two chosen models (Logistic Regression and XGBoost)
 
-insurance_type - The type of insurance the patient has
+[Optimized Logistic Regression](https://github.com/alex-115/CSCI-485-project/blob/main/Optimized_Logstic_model/Optimized_Logistic_model.py)
 
-discharge_disposition - The type of discharge disposition the patient was received after treatment
+[Optimized Logistic Regression Results](https://github.com/alex-115/CSCI-485-project/blob/main/Optimized_Logstic_model/Logstic_Results.txt)
 
-Label - 1 if the patient has been readmitted within 30-days and 0 if the patient hasn't been readmitted within 30-days
+[Optimized XGBoost verison A](https://github.com/alex-115/CSCI-485-project/blob/main/Himanshu_Stage3/v1_xgboost/train.py)
+
+[Optimized XGBoost version B](https://github.com/alex-115/CSCI-485-project/blob/main/Himanshu_Stage3/v2_xgboost/train.py)
+
+[Stage 3 Report](https://github.com/alex-115/CSCI-485-project/blob/main/Himanshu_Stage3/stage3_report.md)
+
+## Stage 4
+
+Description: The fourth stage centered on interpreting the results of our best model through visualizations and performance metrics to provide clear insights into model behavior and predictive reliability.
+
+[Shap Analysis](https://github.com/alex-115/CSCI-485-project/tree/main/SHAP_Analysis)
+
+[Demo](https://github.com/alex-115/CSCI-485-project/blob/main/Demo_All_Stages.ipynb)
+
+[Final Report](https://github.com/alex-115/CSCI-485-project/blob/main/Final_Report.ipynb)
+
+
